@@ -9,7 +9,7 @@ import time
 
 # Add submissions folder to path
 sys.path.append(os.path.join(os.getcwd(), 'submissions'))
-import code_submission_v2 as submission
+import submissions.code_submission_v3 as submission
 
 def test_samples(samples_dir='samples', limit=1000):
     sample_files = glob.glob(os.path.join(samples_dir, '*.txt'))
@@ -23,7 +23,7 @@ def test_samples(samples_dir='samples', limit=1000):
     scores = []
     
     for i, sample_file in enumerate(sample_files[:limit]):
-        print(f"\nTesting {os.path.basename(sample_file)}...")
+        # print(f"\nTesting {os.path.basename(sample_file)}...")
         
         # Read base64 data
         with open(sample_file, 'r') as f:
@@ -97,12 +97,12 @@ def test_samples(samples_dir='samples', limit=1000):
             
             score = max(0.0, min(1.0, (1 - compression_ratio) * (1 - total_time / 1.012)))
             
-            print(f"  Success: Arrays match")
-            print(f"  Original Size: {original_size} bytes")
-            print(f"  Compressed Size: {compressed_size} bytes")
-            print(f"  Ratio: {compression_ratio:.4f}")
-            print(f"  Time: {total_time:.4f}s (Comp: {compress_time:.4f}s, Decomp: {decompress_time:.4f}s)")
-            print(f"  Score: {score:.4f}")
+            # print(f"  Success: Arrays match")
+            # print(f"  Original Size: {original_size} bytes")
+            # print(f"  Compressed Size: {compressed_size} bytes")
+            # print(f"  Ratio: {compression_ratio:.4f}")
+            # print(f"  Time: {total_time:.4f}s (Comp: {compress_time:.4f}s, Decomp: {decompress_time:.4f}s)")
+            # print(f"  Score: {score:.4f}")
             scores.append(score)
         else:
             print("  FAILURE: Arrays do not match")
