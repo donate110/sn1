@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.12"
 
 [manifest]
@@ -164,7 +164,7 @@ wheels = [
 
 [[package]]
 name = "apex"
-version = "4.0.0"
+version = "4.0.1"
 source = { virtual = "." }
 
 [[package]]
@@ -399,13 +399,14 @@ wheels = [
 
 [[package]]
 name = "cli"
-version = "0.1.0"
+version = "4.0.1"
 source = { editable = "src/cli" }
 dependencies = [
     { name = "common" },
     { name = "competition" },
     { name = "httpx" },
     { name = "inquirer" },
+    { name = "prompt-toolkit" },
     { name = "rich" },
     { name = "textual" },
     { name = "typer" },
@@ -417,6 +418,7 @@ requires-dist = [
     { name = "competition", editable = "shared/competition" },
     { name = "httpx", specifier = ">=0.27.0" },
     { name = "inquirer", specifier = ">=3.4.1" },
+    { name = "prompt-toolkit", specifier = ">=3.0.52" },
     { name = "rich", specifier = ">=14.2.0" },
     { name = "textual", specifier = ">=6.4.0" },
     { name = "typer", specifier = ">=0.20.0" },
@@ -445,7 +447,7 @@ wheels = [
 
 [[package]]
 name = "common"
-version = "0.1.0"
+version = "4.0.1"
 source = { editable = "shared/common" }
 dependencies = [
     { name = "bittensor-wallet" },
@@ -472,7 +474,7 @@ requires-dist = [
 
 [[package]]
 name = "competition"
-version = "0.1.0"
+version = "4.0.1"
 source = { editable = "shared/competition" }
 
 [[package]]
@@ -1259,6 +1261,18 @@ wheels = [
 ]
 
 [[package]]
+name = "prompt-toolkit"
+version = "3.0.52"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "wcwidth" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/a1/96/06e01a7b38dce6fe1db213e061a4602dd6032a8a97ef6c1a862537732421/prompt_toolkit-3.0.52.tar.gz", hash = "sha256:28cde192929c8e7321de85de1ddbe736f1375148b02f2e17edd840042b1be855", size = 434198, upload-time = "2025-08-27T15:24:02.057Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/84/03/0d3ce49e2505ae70cf43bc5bb3033955d2fc9f932163e84dc0779cc47f48/prompt_toolkit-3.0.52-py3-none-any.whl", hash = "sha256:9aac639a3bbd33284347de5ad8d68ecc044b91a762dc39b7c21095fcd6a19955", size = 391431, upload-time = "2025-08-27T15:23:59.498Z" },
+]
+
+[[package]]
 name = "propcache"
 version = "0.4.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1864,7 +1878,7 @@ wheels = [
 
 [[package]]
 name = "validator"
-version = "0.1.0"
+version = "4.0.1"
 source = { editable = "src/validator" }
 dependencies = [
     { name = "aiohttp" },
