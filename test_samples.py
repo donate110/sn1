@@ -9,7 +9,7 @@ import time
 
 # Add submissions folder to path
 sys.path.append(os.path.join(os.getcwd(), 'submissions'))
-import submissions.code_submission_v3 as submission
+import submissions.code_submission_v2_random as submission
 
 def test_samples(samples_dir='samples', limit=1000):
     sample_files = glob.glob(os.path.join(samples_dir, '*.txt'))
