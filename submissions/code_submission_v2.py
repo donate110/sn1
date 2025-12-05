@@ -39,15 +39,18 @@ def compress(input_data: CompressionInputDataSchema) -> None:
     
     # Determine compression method based on sparsity
     # Sparsity check is fast
-    sparsity = np.count_nonzero(arr == 0) / arr.size
+    # Sparsity = 1 - density
+    sparsity = 1.0 - (np.count_nonzero(arr) / arr.size)
     
     # Method ID: 1=BZ2, 2=LZMA
     if sparsity > 0.05:
         method = 2 # LZMA for sparse data
-        compressed = lzma.compress(arr.tobytes())
+        # Preset 1 is faster and provides good enough compression for sparse data
+        compressed = lzma.compress(arr.tobytes(), preset=1)
     else:
         method = 1 # BZ2 for dense data
-        compressed = bz2.compress(arr.tobytes())
+        # Level 9 is default but explicit is better
+        compressed = bz2.compress(arr.tobytes(), compresslevel=9)
     
     header = struct.pack('B', method)
     header += struct.pack('I', len(arr.shape))
